@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+   - name: dbsales
+     schema: public
+     tables:
+       - name: commodities
+         description: "table containing historical commodity data"
+         columns:
+           - name: Date
+             description: observation date
+           - name: Close
+             description: closing price of the commodity on the given date
+           - name: Symbol
+             description: commodity symbol identifier
