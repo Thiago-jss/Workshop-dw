@@ -13,3 +13,15 @@ sources:
              description: closing price of the commodity on the given date
            - name: Symbol
              description: commodity symbol identifier
+
+       - name: commodity_trading
+         description: "seed_table"
+         columns:
+           - name: Date
+             description: transaction date
+           - name: Action
+             description: transaction type
+           - name: Symbol
+             description: commodity symbol
+           - name: Quantity
+             description: transitioned quantity
