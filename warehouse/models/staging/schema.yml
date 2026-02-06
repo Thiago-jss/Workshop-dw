@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_commodities
+    description: “Staging table for commodity data”
+    columns:
+      - name: date
+        description: “Observation date in YYYY-MM-DD format”
+      - name: closing_price
+        description: “Closing price of the commodity with 4.2 decimal precision”
+      - name: symbol
+        description: “Commodity symbol”
+  - name: stg_commodity_movement
+    description: “Staging table for commodity movement data”
+    columns:
+      - name: date
+        description: “Transaction date in YYYY-MM-DD format”
+      - name: symbol
+        description: “Commodity symbol”
+      - name: action
+        description: “Transaction type (buy/sell)”
+      - name: quantity
+        description: “Transaction quantity”
