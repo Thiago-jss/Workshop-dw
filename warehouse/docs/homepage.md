@@ -8,6 +8,38 @@ This project uses DBT (Data Build Tool) to manage and transform data from a comm
 
 ## Project Structure
 
+```mermaid
+graph TD
+    A[Start] --> B[Extract Commodity Data]
+    B --> C[Transform Commodity Data]
+    C --> D[Load Data into PostgreSQL]
+    D --> E[End]
+
+    subgraph Extract
+        B1[Search Data for Each Commodity]
+        B2[Add Data to List]
+    end
+
+    subgraph Transform
+        C1[Concatenate All Data]
+        C2[Prepare DataFrame]
+    end
+
+    subgraph Load
+        D1[Save DataFrame in PostgreSQL]
+    end
+
+    B --> B1
+    B1 --> B2
+    B2 --> C
+    C --> C1
+    C1 --> C2
+    C2 --> D
+    D --> D1
+```
+
+Translated with DeepL.com (free version)
+
 ### 1. Seeds
 
 Seeds are static data that are loaded into the Data Warehouse from CSV files. In this project, we use seeds to load commodity movement data.
@@ -79,7 +111,7 @@ Example of `profiles.yml`:
     target: dev
     outputs:
       dev:
-        type: postgres
+         type: postgres
          host: <DB_HOST_PROD>
          user: <DB_USER_PROD>
          password: <DB_PASS_PROD>
